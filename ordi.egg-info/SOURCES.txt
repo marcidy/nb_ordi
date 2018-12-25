@@ -1,0 +1,17 @@
+MANIFEST.in
+README.md
+setup.py
+ordi/__init__.py
+ordi.egg-info/PKG-INFO
+ordi.egg-info/SOURCES.txt
+ordi.egg-info/dependency_links.txt
+ordi.egg-info/not-zip-safe
+ordi.egg-info/requires.txt
+ordi.egg-info/top_level.txt
+ordi/raspi/__init__.py
+ordi/raspi/ordi.py
+ordi/server/__init__.py
+ordi/server/camera.py
+ordi/server/commands.py
+ordi/server/exceptions.py
+ordi/server/routes.py

@@ -1,0 +1,2 @@
+kivy==1.10.1
+git+git://github.com/marcidy/nb_pyspacelib@master#egg=pyspacelib
