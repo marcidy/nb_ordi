@@ -1,19 +1,30 @@
 #:kivy 1.0
 
 <FlaschenTaschenViewer>:
-    orientation: 'vertical'
-    Widget:
-        id: ft
+    size_hint: .7, None
+
+<OrdiBooth>:
+    id: booth
+    # size_hint: 400, 400
+#     orientation: 'horizontal'
+#     BoxLayout:
+#         pos_hint: {'top': 1, 'bottom': .1} 
+#     	FlaschenTaschenViewer:
+#             index: 1
+#             id: ft
+#     BoxLayout:
+#         orientation: 'vertical'
+#         pos_hint: {'right': .3}
+#         size_hint: .4, .2
+#         Button:
+#             text: "Reset"
+#             on_press: ft.reset(booth)
+#         Button:
+#             text: "Import"
+#             on_press: ft.add_bottles(booth)
+#         Button:
+#             on_press: ft.show()
+#             text: "Send to Flaschen Taschen"
     BoxLayout:
-        canvas:
-        size_hint: 1, None
-        height: 50
-        Button:
-            text: "Reset"
-            on_press: root.reset(ft)
-        Button:
-            text: "Import"
-            on_press: root.add_bottles(ft)
-        Button:
-            on_press: root.show()
-            text: "Send to Flaschen Taschen"
+    	Image:
+            source: root.source
