@@ -23,8 +23,8 @@ from kivy.uix.widget import Widget
 
 
 class OrdiBooth(BoxLayout):
-
-        source = '/home/pi/Projects/nb_ordi/ordi/rasp/water.jpg'
+        source = '/home/pi/Projects/nb_ordi/ordi/raspi/test.png'
+        source2 = '/home/pi/Projects/nb_ordi/ordi/raspi/water.jpg'
 
 
 class FlaschenTaschenViewer(Widget):
@@ -32,6 +32,10 @@ class FlaschenTaschenViewer(Widget):
     ftc = FTController()
 
     def add_bottles(self, wid):
+        print("{}".format(self.size))
+        _x, _y = self.pos
+        _h, _w = self.size
+
         self.fti = FTImage("./test.png", "./")
         self.fti.pixelate(ft.width, ft.height)
         self.ftc.fill_buffer(self.fti)
@@ -39,24 +43,22 @@ class FlaschenTaschenViewer(Widget):
         height = ft.height
         width = ft.width
         grid = self.ftc.grid
-        bottle_size = 12
+        bottle_size = min(_h/height, _w/width)
 
         with wid.canvas:
             for y in range(width):
                 for x in range(height):
                     r, g, b = grid[height-(x+1)][y]
                     Color(r/255, g/255, b/255)
-                    Ellipse(pos=(y*bottle_size, x*bottle_size), size=(bottle_size, bottle_size))
+                    Ellipse(pos=(y*bottle_size + self.y,
+                                 x*bottle_size + self.x),
+                            size=(bottle_size, bottle_size))  # NOQA
 
     def reset(self, wid):
         wid.canvas.clear()
 
     def show(self):
         self.ftc.show()
-
-#     def build(self):d
-#         root = Builder.load_file("ordi.kv")
-#         return root
 
 
 class OrdiApp(App):
