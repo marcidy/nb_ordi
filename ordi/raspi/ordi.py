@@ -15,31 +15,32 @@ from kivy.uix.relativelayout import RelativeLayout
 from kivy.uix.floatlayout import FloatLayout
 from kivy.uix.widget import Widget
 
-# Config.set('graphics', 'width', '480')
-# Config.set('graphics', 'height', '320')
+Config.set('graphics', 'width', '800')
+Config.set('graphics', 'height', '480')
 # Config.set('graphics', 'fullscreen', 'auto')
 # Config.set('graphics', 'window_state', 'maximized')
 # Window.fullscreen = 'auto'
 
 
 class OrdiBooth(BoxLayout):
-        source = '/home/pi/Projects/nb_ordi/ordi/raspi/test.png'
-        source2 = '/home/pi/Projects/nb_ordi/ordi/raspi/water.jpg'
+    source = './test.png'
+    source2 = './water.jpg'
 
 
 class FlaschenTaschenViewer(Widget):
 
     ftc = FTController()
 
-    def add_bottles(self, wid):
-        print("{}".format(self.size))
-        _x, _y = self.pos
-        _h, _w = self.size
-
-        self.fti = FTImage("./test.png", "./")
+    def load_image(self, img_path='./test.png'):
+        self.fti = FTImage(img_path, "./")
         self.fti.pixelate(ft.width, ft.height)
         self.ftc.fill_buffer(self.fti)
 
+    def add_bottles(self, wid):
+        _x, _y = self.pos
+        _h, _w = self.size
+
+        self.load_image()
         height = ft.height
         width = ft.width
         grid = self.ftc.grid
@@ -64,7 +65,6 @@ class FlaschenTaschenViewer(Widget):
 class OrdiApp(App):
 
     def build(self):
-        # Builder.load_file("./ordi.kv")
         return OrdiBooth()
 
 
