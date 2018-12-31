@@ -15,8 +15,8 @@ from kivy.uix.relativelayout import RelativeLayout
 from kivy.uix.floatlayout import FloatLayout
 from kivy.uix.widget import Widget
 
-Config.set('graphics', 'width', '800')
-Config.set('graphics', 'height', '480')
+# Config.set('graphics', 'width', '800')
+# Config.set('graphics', 'height', '480')
 # Config.set('graphics', 'fullscreen', 'auto')
 # Config.set('graphics', 'window_state', 'maximized')
 # Window.fullscreen = 'auto'
@@ -25,6 +25,9 @@ Config.set('graphics', 'height', '480')
 class OrdiBooth(BoxLayout):
     source = './test.png'
     source2 = './water.jpg'
+
+    def snap(self):
+        pass
 
 
 class FlaschenTaschenViewer(Widget):
@@ -47,12 +50,12 @@ class FlaschenTaschenViewer(Widget):
         bottle_size = min(_h/height, _w/width)
 
         with wid.canvas:
-            for y in range(width):
-                for x in range(height):
-                    r, g, b = grid[height-(x+1)][y]
+            for x in range(width):
+                for y in range(height):
+                    r, g, b = grid[height-(y+1)][x]
                     Color(r/255, g/255, b/255)
-                    Ellipse(pos=(y*bottle_size + self.y,
-                                 x*bottle_size + self.x),
+                    Ellipse(pos=(x*bottle_size + _x,
+                                 y*bottle_size + _y),
                             size=(bottle_size, bottle_size))  # NOQA
 
     def reset(self, wid):
