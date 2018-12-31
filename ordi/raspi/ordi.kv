@@ -8,30 +8,37 @@
     padding: "10dp"
     BoxLayout:
         orientation: 'horizontal'
-        size_hint: None, None
+        size_hint: .5, .2
         BoxLayout:
+            size_hint: .75, 1
+            Button:
+                text: "Take Photo"
+                on_press: booth.snap
+        BoxLayout:
+            size_hint: 1, 1
             orientation: 'vertical'
             Button:
-                text: "Reset"
-                on_press: ft.reset(booth)
-            Button:
                 text: "Import"
-                on_press: ft.add_bottles(booth)
-            Button:
-                text: "Send to Flaschen Taschen"
-                on_press: ft.show()
-        BoxLayout:
+                on_press: ft.add_bottles(ft)
             Button:
                 text: "Your mom"
-    BoxLayout:
-        orientation: 'horizontal'
-        size_hime: None, None
         BoxLayout:
-            size_hint: None, None
+            Button:
+                text: "Send to\nFlaschen\nTaschen"
+                halign: 'center'
+                on_press: ft.show()
+            Button:
+                text: "Reset"
+                on_press: ft.reset(ft)
+    BoxLayout:
+        size_hint: 1, .8
+        orientation: 'horizontal'
+        BoxLayout:
+            size_hint: .85, .85
+        	Image:
+                source: root.source
+        BoxLayout:
+            size_hint: 1.1, 1.1
         	FlaschenTaschenViewer:
                 index: 1
                 id: ft
-        BoxLayout:
-            size_hint: None, None
-        	Image:
-                source: root.source
