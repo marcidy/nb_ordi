@@ -1,2 +1,0 @@
-class NoCameraException(Exception):
-    pass

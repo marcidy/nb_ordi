@@ -1,6 +1,5 @@
 import subprocess
 
-
 COMMANDS = {
     'ptpcam': "/home/marcidy/Projects/noisebridge/ordibooth/libptp-chdk/src/ptpcam", # NOQA
     'convert': "/usr/bin/convert"

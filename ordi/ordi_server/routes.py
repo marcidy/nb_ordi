@@ -2,12 +2,11 @@ from flask import (
     render_template,
     request
 )
-from nb_ordi import (
+from ordi_server import (
     app,
     cam,
 )
-from nb_ordi.exceptions import NoCameraException
-import pudb
+from ordi_server.camera import NoCameraException
 
 
 @app.route('/snap')
@@ -51,7 +50,6 @@ def piready():
 
 @app.route('/checkcamera')
 def check_camera():
-    pudb.set_trace()
     try:
         cam.set_device(cam.id)
     except NoCameraException:

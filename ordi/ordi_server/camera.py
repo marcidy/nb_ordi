@@ -1,12 +1,15 @@
 import os
-from PIL import Image
 import subprocess
-from nb_ordi.commands import (
+from PIL import Image
+from ordi_server.commands import (
     COMMANDS,
     run,
     unwrap_return,
 )
-from nb_ordi.exceptions import NoCameraException
+
+
+class NoCameraException(Exception):
+    pass
 
 
 class Picture:

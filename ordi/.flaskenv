@@ -1,0 +1,2 @@
+FLASK_APP=ordi_server
+FLAS_DEBUG=1
