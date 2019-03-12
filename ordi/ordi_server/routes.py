@@ -33,11 +33,6 @@ def tweet():
     return('')
 
 
-@app.route('/flashen')
-def send_to_ft():
-    return('')
-
-
 @app.route('/piready')
 def piready():
     try:
